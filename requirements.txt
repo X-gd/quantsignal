@@ -1,0 +1,8 @@
+pandas>=2.0
+numpy>=1.24
+requests>=2.28
+scikit-learn>=1.2
+fastapi>=0.100
+uvicorn>=0.23
+# 可选后备数据源（体积较大，按需取消注释）
+# akshare>=1.14
