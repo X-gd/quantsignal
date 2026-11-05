@@ -11,7 +11,8 @@ from .db import latest_params, load_bars
 
 
 def build_export(conn, bar_limit: int = 400) -> dict:
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    now = datetime.datetime.now(
+        datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
     codes = [dict(r) for r in conn.execute(
         "SELECT code,name,type FROM instruments ORDER BY code").fetchall()]
     glob = latest_params(conn)  # 全局参数版本（code IS NULL）

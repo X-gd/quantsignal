@@ -27,12 +27,15 @@ DEFAULT_WATCHLIST = [
 ]
 
 
+_TZ8 = datetime.timezone(datetime.timedelta(hours=8))  # 统一北京时间（Actions 是 UTC）
+
+
 def _today() -> str:
-    return datetime.datetime.now().strftime("%Y-%m-%d")
+    return datetime.datetime.now(_TZ8).strftime("%Y-%m-%d")
 
 
 def _now() -> str:
-    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    return datetime.datetime.now(_TZ8).strftime("%Y-%m-%d %H:%M")
 
 
 def run(db_path: str = "data/quant.db", export_path: str | None = None,
